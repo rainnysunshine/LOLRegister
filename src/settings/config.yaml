@@ -1,22 +1,22 @@
 accounts:
   1:
-    username: "myrainysunshine28"
-    password: "SJFcq123456@"
+    username: ""
+    password: ""
   2:
-    username: "myrainysunshine29"
-    password: "SJFcq123456@"
+    username: ""
+    password: ""
 
 settings:
-  email: "qwersjf@proton.me"
+  email: ""
 
   # 当autofill_account为true，下列属性生效，可自动按顺序注册账号。
   autofill_account: true
   # 提供账号前缀，共同的密码
-  prefix_username: "myrainysunshine"
+  prefix_username: "rainysunshine"
   # 自动创建账号总数量
   account_nums: 2
-  # 账号后缀开始数字，即从 username="myrainysunshine21"开始
-  begin_num: 32
+  # 账号后缀开始数字，即从 username="rainysunshine21"开始
+  begin_num: 21
   # 共同的密码
-  common_password: "SJFcq123456@"
+  common_password: ""
 
