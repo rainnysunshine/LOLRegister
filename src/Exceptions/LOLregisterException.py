@@ -1,0 +1,2 @@
+class LOLregisterException(Exception):
+    pass
