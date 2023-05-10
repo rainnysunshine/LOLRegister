@@ -48,7 +48,8 @@ def WebElementExist(type: str, string: str):
         elements = driver.find_elements(By.XPATH, string)
     if type == 'css':
         elements = driver.find_elements(By.CSS_SELECTOR, string)
-
+    if type == 'classname':
+        elements = driver.find_elements(By.CLASS_NAME,string)
     if len(elements) == 0:
         return None
     else:
@@ -86,7 +87,7 @@ def verify_captcha():
     # 获取问题文字
     captcha_target_text = get_captcha_target_text()
     logger.debug(f'captcha_target_text {captcha_target_text}')
-    single_captcha_elements = WebDriverWait(driver, 10).until(EC.visibility_of_all_elements_located(
+    single_captcha_elements = WebDriverWait(driver, 20).until(EC.visibility_of_all_elements_located(
         (By.CSS_SELECTOR, '.task-image .image-wrapper .image')))
     resized_single_captcha_base64_strings = []
     for i, single_captcha_element in enumerate(single_captcha_elements):
@@ -195,14 +196,15 @@ def main(email: str, account: dict, index: int):
 
     switch_to_captcha_content_iframe()
     verify_captcha()
-
+    sleep(5)
     # 判断是否会出现”进行顺利吗？“页面，如果出现，需要重新点击确认
     # WebDriverWait(driver, 5).until(driver.switch_to.default_content())
 
     driver.switch_to.default_content()
     element_exist = WebElementExist('css', '.scene-heading')
     if element_exist:
-        if element_exist.text == '進行順利嗎？':
+        title_now = element_exist.text
+        if title_now == '進行順利嗎？':
             driver.find_element(By.CSS_SELECTOR, '.next-button').click()
             switch_to_captcha_content_iframe()
             verify_captcha()
@@ -212,7 +214,7 @@ if __name__ == '__main__':
     config = init()
     accounts = config.accounts
     email = config.email
-    accountdict = {}
+
 
     for i, account in enumerate(accounts):
         main(email, accounts[account], i)
