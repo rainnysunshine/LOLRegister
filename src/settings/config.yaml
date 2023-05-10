@@ -8,14 +8,14 @@ accounts:
 
 settings:
   email: ""
-
+  
   # 当autofill_account为true，下列属性生效，可自动按顺序注册账号。
   autofill_account: true
-  # 提供账号前缀，共同的密码
-  prefix_username: "rainysunshine"
+  # 提供账号前缀
+  prefix_username: ""
   # 自动创建账号总数量
   account_nums: 2
-  # 账号后缀开始数字，即从 username="rainysunshine21"开始
+  # 账号后缀开始数字，例：prefix_username="abc",即从 username="abc21"开始
   begin_num: 21
   # 共同的密码
   common_password: ""
