@@ -6,6 +6,8 @@
 - 如果验证图片为九宫格图片之外的图片类型，暂时请尝试重新运行
 
 # settings
+## 验证图片所需api_key暂请自行提供
+   在constants.py中填写api_key
 ## 账号设置 in settings/config.yaml
 ### 在config.yaml中，有两种账号设置方法
 ### 1. 直接在accounts下，自定义账号序号，设置username和password
